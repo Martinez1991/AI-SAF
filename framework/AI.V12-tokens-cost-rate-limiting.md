@@ -12,7 +12,7 @@ abnormal consumption.
 | AI.V12.2 | Verify that rate limiting is applied at the API/gateway layer for all model-invoking endpoints. | ✓ | | | LLM10 |
 | AI.V12.3 | Verify that per-agent / per-session token budgets are enforced for multi-step or autonomous workflows. | | ✓ | | LLM10, ASI |
 | AI.V12.4 | Verify that per-application cost budgets are configured with billing alerts and hard spending caps. | | ✓ | | LLM10 |
-| AI.V12.5 | Verify that protections exist against context-window exhaustion and recursive/looping agent calls (maximum iterations and recursion-depth limits). | | ✓ | | LLM10, ASI |
+| AI.V12.5 | Verify that protections exist against context-window and token exhaustion via server-side context/token caps (agent loop and recursion ceilings are enforced under AI.V9.2). | | ✓ | | LLM10, ASI |
 | AI.V12.6 | Verify that anomaly detection on consumption (token spikes, abnormal call patterns) triggers automated throttling and alerting. | | | ✓ | LLM10 |
 
 > A ✓ marks the lowest level at which the requirement first applies; it remains

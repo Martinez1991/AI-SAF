@@ -36,4 +36,5 @@
 
 - **AI.V8 MCP & Tool Security** — tool invocation depends on the caller already holding a distinct, authenticated identity; per-agent attribution here (AI.V2.3) feeds the tool-level logging in AI.V8.8.
 - **AI.V9 Agent Security** — agents are the principals authenticated and attributed by this domain; bounded delegation (AI.V2.6) constrains the authority an agent may exercise.
-- **AI.V3 Authorization & Access Control** — authentication establishes *who* a principal is; authorization decides *what* that identity may do, consuming the distinct identities and session bindings defined here.
+- **AI.V3 Secrets & Credential Management** — the scoped, short-lived, revocable credentials issued to the agent and service identities established here (AI.V2.5) are stored and rotated under AI.V3.
+- **AI.V8 / AI.V6.5** — authorization (*what* an authenticated identity may do) is enforced at the tool/service layer (AI.V8.2) and outside the prompt (AI.V6.5); this domain establishes the distinct identities and session bindings those decisions consume.

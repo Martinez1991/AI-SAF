@@ -36,5 +36,5 @@
 
 - **AI.V6 Prompt Security** — AI.V7.2 and AI.V7.6 address indirect prompt injection that enters through retrieved content, complementing the prompt-handling and injection defenses in AI.V6.6.
 - **AI.V8 MCP & Tool Security** — RAG retrieval is frequently exposed as a tool or MCP server; the input validation and untrusted-output handling in AI.V8 apply to the retrieval interface.
-- **AI.V2 Access Control & Authorization** — AI.V7.3 and AI.V7.4 depend on the identity and authorization model defined there to enforce per-user and per-tenant retrieval boundaries.
-- **AI.V4 Data & Model Supply Chain** — AI.V7.1 and AI.V7.5 extend supply-chain provenance and integrity controls to the content ingested into the knowledge base.
+- **AI.V2 User & Agent Identity / Authentication** — AI.V7.3 and AI.V7.4 depend on the identity model defined there to enforce per-user and per-tenant retrieval boundaries.
+- **AI.V15 AI Supply Chain** — AI.V7.1 and AI.V7.5 extend supply-chain provenance and integrity controls to the content ingested into the knowledge base.

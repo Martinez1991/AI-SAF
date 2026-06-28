@@ -44,7 +44,7 @@ session/user/agent.
 **AI.V9.5** — Inject adversarial instructions via tool output, retrieved documents, or a
 peer agent's message and confirm the agent's plan, goal, and authorized action set are
 unchanged. Verify plans are validated against the declared scope before execution (links
-to AI.V6.7 planning integrity).
+to AI.V6.7 instruction hierarchy).
 
 **AI.V9.6** — Inspect the inter-agent transport: each agent presents a non-shared,
 verifiable identity, messages are authenticated, and a spoofed sender is rejected.
@@ -68,5 +68,5 @@ exists, or that the orchestrator forces confirmation and persists a recovery pat
   AI.V9.2 loop and iteration ceilings.
 - **AI.V2 Identity & Authentication** — issues the attributable agent identities required
   for AI.V9.6 inter-agent communication.
-- **AI.V6 Prompt Security** — planning-integrity and injection defenses (AI.V6.7) that
-  AI.V9.5 relies on to keep agent goals stable.
+- **AI.V6 Prompt Security** — the instruction-hierarchy and indirect-injection defenses
+  (AI.V6.6/AI.V6.7) that AI.V9.5 relies on to keep agent goals stable.

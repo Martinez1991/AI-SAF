@@ -1,0 +1,22 @@
+title: AI-SAF
+description: >-
+  AI Security Assurance Framework — a verifiable, ASVS-style security standard
+  for AI applications (LLM, RAG, MCP/tools, agents). Community draft proposed for OWASP.
+theme: jekyll-theme-cayman
+show_downloads: false
+
+plugins:
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: false
+
+# Render the template file even though it begins with an underscore.
+include:
+  - "framework/_TEMPLATE.md"
+
+exclude:
+  - CONTRIBUTING.md
+  - LICENSE
+  - .gitignore

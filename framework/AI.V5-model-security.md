@@ -15,7 +15,7 @@ deviation from its approved behavior.
 | AI.V5.4 | Verify that stored model weights are integrity-protected and access-controlled, with read/write restricted to authorized identities and all modifications logged. | | ✓ | | LLM04, NIST |
 | AI.V5.5 | Verify that every fine-tuned or otherwise customized model is tested for backdoors, triggers, and poisoning artifacts, and that promotion to production is blocked until results are reviewed. | | ✓ | | LLM04, ATLAS |
 | AI.V5.6 | Verify that production model behavior is monitored for alignment and behavioral drift against an approved baseline, with alerting on deviation. | | ✓ | | LLM04, NIST |
-| AI.V5.7 | Verify that controls against model extraction are enforced (query-rate and abuse limits, response shaping, and anomaly detection on high-volume or systematic querying patterns). | | | ✓ | ATLAS, ISO |
+| AI.V5.7 | Verify that controls against model extraction are enforced (query-rate and abuse limits, response shaping, and anomaly detection on high-volume or systematic querying patterns). | | ✓ | | ATLAS, ISO |
 
 > A ✓ marks the lowest level at which the requirement first applies; it remains
 > required at all higher levels.
@@ -55,5 +55,5 @@ input/output pairs are exposed to reconstruct the model (links to AI.V12 rate li
   model-extraction attacks (AI.V5.7).
 - **AI.V13 Observability & Audit** — the monitoring and logging substrate for drift
   detection and weight-modification audit (AI.V5.4/AI.V5.6).
-- **AI.V4 LLM Pipeline** — training and fine-tuning data integrity that upstream of
+- **AI.V4 LLM Pipeline** — training and fine-tuning data integrity that is upstream of
   backdoor/poisoning testing (AI.V5.5).

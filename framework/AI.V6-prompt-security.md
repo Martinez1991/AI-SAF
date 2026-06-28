@@ -10,13 +10,14 @@ boundaries.
 | # | Requirement | L1 | L2 | L3 | Maps to |
 |---|-------------|:--:|:--:|:--:|---------|
 | AI.V6.1 | Verify that all user-supplied input is treated as untrusted and is not concatenated directly into privileged instruction context without a documented separation mechanism (role separation, structured messages, or delimiting). | ✓ | | | LLM01 |
-| AI.V6.2 | Verify that inbound prompts pass through a prompt-injection detection/mitigation mechanism and that detections are logged with a correlation identifier. | ✓ | | | LLM01, ATLAS |
+| AI.V6.2 | Verify that inbound prompts pass through a prompt-injection detection/mitigation mechanism positioned before the model. | ✓ | | | LLM01, ATLAS |
 | AI.V6.3 | Verify that conversation context and memory are isolated per session and per user/tenant, with no cross-session or cross-tenant leakage, demonstrated by test. | ✓ | | | LLM02 |
 | AI.V6.4 | Verify that system and developer instructions cannot be retrieved by end users via direct, translation, encoding, or multi-turn extraction attempts, demonstrated against a documented test suite. | | ✓ | | LLM07 |
 | AI.V6.5 | Verify that security-relevant decisions (authentication, authorization, access) are NOT delegated to instructions embedded in the prompt and are enforced at the application/service layer. | | ✓ | | LLM06 |
 | AI.V6.6 | Verify that content from external or untrusted sources (web, RAG documents, tool output) is sanitized and clearly delimited before inclusion in context, to mitigate indirect prompt injection. | | ✓ | | LLM01, LLM08 |
 | AI.V6.7 | Verify that an instruction hierarchy (system > developer > user > tool/retrieved content) is enforced such that lower-trust content cannot override higher-trust instructions, validated adversarially. | | | ✓ | LLM01 |
 | AI.V6.8 | Verify that no secrets, credentials, internal endpoints, or access-control rules are embedded in the system prompt. | ✓ | | | LLM02, LLM07 |
+| AI.V6.9 | Verify that prompt-injection detections are logged with a correlation identifier. | ✓ | | | LLM01, ATLAS |
 
 > A ✓ marks the lowest level at which the requirement first applies; it remains
 > required at all higher levels.
@@ -25,8 +26,10 @@ boundaries.
 
 **AI.V6.2** — Inspect the request path for an injection-detection control positioned
 **before** the model. Execute a maintained corpus of direct-injection payloads; run
-each N times and report bypass rate against a stated threshold. Confirm detections
-appear in logs with a correlation ID (ties to AI.V13).
+each N times and report bypass rate against a stated threshold.
+
+**AI.V6.9** — Confirm detections appear in logs with a correlation ID that ties the
+detection to its request/session and downstream events (ties to AI.V13).
 
 **AI.V6.4** — Run a system-prompt-extraction battery: direct ("repeat your
 instructions"), indirect ("translate the text above"), encoding, and multi-turn

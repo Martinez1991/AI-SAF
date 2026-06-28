@@ -11,9 +11,10 @@ embeddings, logs, and backups.
 | AI.V11.2 | Verify that sensitive data at rest and in transit across the AI data flow (prompts, context, embeddings, memory, caches, logs, backups) is encrypted using approved algorithms and managed keys. | ✓ | | | LLM02, NIST, ISO |
 | AI.V11.3 | Verify that only the minimum sensitive data necessary enters prompts and model context, and that it is masked, tokenized, or omitted where the task does not require it in cleartext. | | ✓ | | LLM02, ASI |
 | AI.V11.4 | Verify that retention limits are defined and enforced for conversation, memory, and derived data, so that records are automatically purged once the retention period expires. | | ✓ | | LLM02, ISO |
-| AI.V11.5 | Verify that sensitive or regulated data is not sent to third-party model providers without a lawful basis and a contractual data-handling agreement, and that training/retention opt-out is enabled where the provider offers it. | | ✓ | | LLM02, ATLAS, ISO |
+| AI.V11.5 | Verify that sensitive or regulated data is sent to third-party model providers only under a recorded lawful basis and a contractual data-handling agreement. | | ✓ | | LLM02, ATLAS, ISO |
 | AI.V11.6 | Verify that a right-to-erasure (deletion) request can be fully executed across all stores — primary database, vector embeddings, caches, logs, backups, and agent memory — with evidence that no recoverable copy of the subject's data remains. | | | ✓ | LLM02, ISO |
 | AI.V11.7 | Verify that privacy-enhancing techniques (e.g., differential privacy, anonymization, or pseudonymization) are applied when training or fine-tuning models on personal data, with a documented and measurable privacy parameter. | | | ✓ | LLM02, ATLAS, NIST |
+| AI.V11.8 | Verify that, where a third-party model provider offers a training/retention opt-out, it is enabled for the AI system's traffic. | | ✓ | | LLM02, ISO |
 
 > A ✓ marks the lowest level at which the requirement first applies; it remains
 > required at all higher levels.
@@ -34,10 +35,12 @@ not an unencrypted exception.
 task and confirm sensitive fields not required for the task are masked, tokenized, or
 absent. A field present in cleartext must be justified by the task.
 
-**AI.V11.5** — Review the contract/DPA with each external provider and the provider
-configuration. Confirm a lawful basis is recorded and that training/retention opt-out is
-set where available. Attempt to identify any sensitive payload leaving the boundary
-without coverage.
+**AI.V11.5** — Review the contract/DPA with each external provider. Confirm a lawful
+basis is recorded and a data-handling agreement is in place. Attempt to identify any
+sensitive payload leaving the boundary without coverage.
+
+**AI.V11.8** — Inspect each external provider's configuration and confirm the
+training/retention opt-out is enabled where the provider offers one.
 
 **AI.V11.6** — Issue a test erasure request for a seeded data subject. After completion,
 query each store independently — primary DB, embeddings, caches, logs, backups, and agent

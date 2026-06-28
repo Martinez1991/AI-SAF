@@ -97,7 +97,7 @@ Domain index and conventions: [`framework/README.md`](framework/README.md).
 
 - **v0.1 Foundation** — manifesto, terminology, levels, domain structure, mapping
   skeleton.
-- **v0.2 Full Draft** *(this release)* — all 16 domains drafted with ~115 verifiable,
+- **v0.2 Full Draft** *(this release)* — all 16 domains drafted with 122 verifiable,
   level-tagged requirements; cross-domain references; mapping matrix.
 - **v0.5 Core Standard** — requirement review and refinement; confirmed external-standard
   sub-IDs; full mappings; first worked examples.

@@ -53,8 +53,8 @@ OWASP Foundation. It is **not** an OWASP project at this time.
 
 ```
 AI.V6.2  | Verify that inbound prompts pass through a prompt-injection            | L1
-         | detection/mitigation mechanism and that detections are logged with     |
-         | a correlation identifier.                          Maps to: LLM01, ATLAS
+         | detection/mitigation mechanism positioned before the model.            |
+         |                                                    Maps to: LLM01, ATLAS
 ```
 
 - **ID** — stable identifier, never reused.

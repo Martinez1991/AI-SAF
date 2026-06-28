@@ -13,7 +13,7 @@ MITRE ATLAS. (See `risk-matrix/mappings.md` for the cross-standard table.)
 | Indirect prompt injection (RAG/tool content) | Model behavior | AI.V6, AI.V7, AI.V8 | AI.V6.6/.7, AI.V8.4 | AML.T0051.001, ASI01 |
 | System-prompt leakage | Confidentiality of instructions | AI.V6 | AI.V6.4/.8 | AML.T0051, ASI01 |
 | Cross-session / cross-tenant context leakage | User data | AI.V6, AI.V11 | AI.V6.3 | ASI06, T1 |
-| Sensitive data disclosure in output | PII / secrets | AI.V10, AI.V11 | AI.V10.4 | AML.T0024, AML.T0060 |
+| Sensitive data disclosure in output | PII / secrets | AI.V10, AI.V11 | AI.V10.4/.8 | AML.T0024, AML.T0060 |
 | Excessive agency / unauthorized tool action | Downstream systems | AI.V8, AI.V9 | AI.V8.2/.5 | ASI02, AML.T0061 |
 | Tool compromise → lateral movement | Infrastructure | AI.V8 | AI.V8.7/.8 | AML.T0062, ASI02 |
 | Denial-of-wallet / resource exhaustion | Availability & budget | AI.V12 | AI.V12.1–.6 | AML.T0034, ASI02, T4 |
@@ -34,7 +34,7 @@ for the assets and trust boundaries specific to that archetype.
 | Indirect injection via retrieved documents | Model behavior | AI.V7, AI.V6 | AI.V7, AI.V6.6/.7 | AML.T0051.001, ASI06 |
 | Embedding / vector-store leakage | User data | AI.V7, AI.V11 | AI.V7, AI.V11 | LLM08, AML.T0060 |
 | Cross-tenant retrieval (filter bypass) | Other tenants' data | AI.V7, AI.V11 | AI.V7, AI.V11 | ASI06, T1 |
-| PII / secret disclosure in answer | PII / secrets | AI.V10, AI.V11 | AI.V10.4, AI.V11 | AML.T0024, AML.T0060 |
+| PII / secret disclosure in answer | PII / secrets | AI.V10, AI.V11 | AI.V10.4/.8, AI.V11 | AML.T0024, AML.T0060 |
 | Retrieval-context poisoning (persisted) | Knowledge base integrity | AI.V7 | AI.V7 | AML.T0058, ASI06 |
 
 ### Archetype B — Tool-using assistant
@@ -43,7 +43,7 @@ for the assets and trust boundaries specific to that archetype.
 |--------|---------------|--------|-------------|-------------|
 | Excessive agency (scope creep) | Downstream systems | AI.V8, AI.V9 | AI.V8.2/.5 | ASI02, AML.T0061 |
 | Unauthorized / unintended tool invocation | Downstream systems | AI.V8 | AI.V8.2/.5 | AML.T0062, ASI02 |
-| Tool-output injection | Model behavior | AI.V8, AI.V6 | AI.V8.4, AI.V6.6 | AML.T0051.001, ASI01 |
+| Tool-output injection | Model behavior | AI.V8, AI.V6 | AI.V8.9, AI.V6.6 | AML.T0051.001, ASI01 |
 | Sandbox / execution escape | Infrastructure | AI.V8 | AI.V8.7/.8 | ASI05, T11 |
 | High-impact action without approval | Downstream systems | AI.V8, AI.V9 | AI.V8.5 | ASI02, AML.T0062 |
 

@@ -9,10 +9,11 @@
 | AI.V2.1 | Verify that every AI-exposing endpoint requires authentication and that anonymous or unauthenticated access to model, agent, or tool functionality is not possible. | ✓ | | | ASI, NIST |
 | AI.V2.2 | Verify that human users, agents, and services each authenticate with distinct identities and that no shared, ambient, or hard-coded credential is reused across multiple agents or services. | ✓ | | | LLM06, ASI |
 | AI.V2.3 | Verify that every action taken by an agent is attributable to a single agent identity, recorded at the time of the action so the responsible principal can be determined after the fact. | | ✓ | | ASI, ATLAS |
-| AI.V2.4 | Verify that strong authentication is enforced on AI-exposing endpoints — MFA for human users and mutual authentication (e.g., mTLS) for service and agent callers — at the API/gateway layer. | | ✓ | | NIST, ISO |
+| AI.V2.4 | Verify that multi-factor authentication is enforced for human users on AI-exposing endpoints, at the API/gateway layer. | | ✓ | | NIST, ISO |
 | AI.V2.5 | Verify that agent and service credentials are short-lived and revocable, and that revocation takes effect for in-flight and subsequent requests without requiring a redeploy. | | ✓ | | ASI, NIST |
 | AI.V2.6 | Verify that delegation or impersonation (an agent acting on behalf of a user) is explicit, carries bounded and auditable authority, and cannot exceed the delegating principal's permissions. | | | ✓ | LLM06, ASI |
 | AI.V2.7 | Verify that each session is cryptographically bound to its authenticated principal and tenant so a session token cannot be replayed or reused across users, agents, or tenants. | | | ✓ | ASI, ISO |
+| AI.V2.8 | Verify that mutual authentication (e.g., mTLS) is enforced for service and agent callers on AI-exposing endpoints, at the API/gateway layer. | | ✓ | | NIST, ISO |
 
 > A ✓ marks the lowest level at which the requirement first applies; it remains required at all higher levels.
 
@@ -24,7 +25,9 @@
 
 **AI.V2.3** — Trigger an agent action and inspect the resulting audit record. Confirm it names the specific agent identity (not a generic gateway or service account) and is written atomically with the action. Run two agents concurrently and verify their actions remain individually attributable. Links to AI.V8.8.
 
-**AI.V2.4** — For human flows, attempt authentication with a valid password but no second factor (expect denial). For service/agent flows, attempt connection without a client certificate or with an untrusted one (expect denial). Confirm enforcement happens at the API/gateway layer rather than relying on the application or model behavior.
+**AI.V2.4** — For human flows, attempt authentication with a valid password but no second factor (expect denial). Confirm MFA enforcement happens at the API/gateway layer rather than relying on the application or model behavior.
+
+**AI.V2.8** — For service/agent flows, attempt connection without a client certificate or with an untrusted one (expect denial). Confirm mutual authentication is enforced at the gateway, independent of application logic.
 
 **AI.V2.5** — Read an issued agent/service credential and record its lifetime; confirm it is bounded and renewed via short-lived issuance rather than a long-lived static secret. Revoke a credential, then replay it on an in-flight and a new request; both must be rejected without redeploying the service.
 

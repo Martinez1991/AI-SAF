@@ -12,10 +12,11 @@ than becoming a new exfiltration surface.
 | AI.V13.1 | Verify that security-relevant AI events — prompt-injection detections, guardrail decisions, tool/MCP invocations, authentication and authorization decisions, and agent steps — are recorded to a durable log. | ✓ | | | ASI, NIST |
 | AI.V13.2 | Verify that a single correlation identifier links every related event (prompt, guardrail, retrieval, tool, and agent steps) across one request or session. | ✓ | | | ASI, ATLAS |
 | AI.V13.3 | Verify that sensitive data, secrets, and PII-bearing prompt content are masked or redacted before log records are written, so they never appear in logs in the clear. | ✓ | | | LLM02, ISO |
-| AI.V13.4 | Verify that logs are emitted in a structured, queryable format and that event timestamps derive from a synchronized, trusted time source. | | ✓ | | NIST, ISO |
+| AI.V13.4 | Verify that logs are emitted in a structured, queryable format. | | ✓ | | NIST, ISO |
 | AI.V13.5 | Verify that the audit trail is sufficient to reconstruct who or what caused a given AI action, including the initiating identity, the model and prompt version, and the resulting decision or output. | | ✓ | | ASI, NIST, ISO |
 | AI.V13.6 | Verify that AI logs and metrics are exported to detection and alerting pipelines, enabling anomaly and rogue-agent alerts to fire on defined conditions. | | ✓ | | ATLAS, NIST |
 | AI.V13.7 | Verify that audit logs are tamper-evident and retained for a defined retention period in accordance with a documented retention and disposal policy. | | | ✓ | ISO, NIST |
+| AI.V13.8 | Verify that event timestamps derive from a synchronized, trusted time source, within a defined acceptable clock skew. | | ✓ | | NIST, ISO |
 
 > A ✓ marks the lowest level at which the requirement first applies; it remains
 > required at all higher levels.
@@ -35,8 +36,10 @@ resulting log records and confirm the sensitive values are masked/redacted befor
 (links to AI.V11 data protection and AI.V3 secrets).
 
 **AI.V13.4** — Parse sampled log records programmatically to confirm a consistent
-structured schema. Compare event timestamps across components against the reference time
-source and confirm clock synchronization within an acceptable skew.
+structured schema.
+
+**AI.V13.8** — Compare event timestamps across components against the reference time
+source and confirm clock synchronization within the defined acceptable skew.
 
 **AI.V13.5** — Pick a completed AI action and, using only the audit trail, reconstruct
 the initiating identity, model/prompt version, inputs, and resulting decision. Confirm
